@@ -4,12 +4,36 @@
 }
 
 body{
-    background-image: url(./img/fundo.webp);
+    background-image: url(./img/fundo.png);
     background-repeat: no-repeat;
     background-size: cover;
 }
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .container{
-    width: 80vh;
-    height: 40vh;
-    background-color: antiquewhite;
+    width: 85%;
+    height: 95vh;
+    background-color: rgba(0, 0, 0, 0.942);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.entrar{
+    width: 80%;
+    height: 80%;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.entrando{
+    width: 20%;
+    height: 5%;
+    background-color: rgba(255, 255, 255, 0.889);
+    border-radius: 20px;
+    padding: 5px;
+    border: solid black;
 }
