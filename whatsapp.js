@@ -3,7 +3,7 @@
 /***********FETCH API***********/
 const getListarContatos = async (numero) => {
     try {
-        const contatosUrl = `http://localhost:8080/v1/whatsapp/contatos/${numero}`
+        const contatosUrl = `http://localhost:8080/v1/whatsapp/conversas/${numero}`
         const response = await fetch(contatosUrl)
 
         if (!response.ok) throw new Error('Erro ao buscar contatos')
@@ -18,7 +18,7 @@ const getListarContatos = async (numero) => {
 /***********EXIBIR CONTATOS***********/
 const mostrarContatos = (contatos) => {
     const main = document.querySelector('body')
-    main.innerHTML = '' 
+    main.replaceChildren()
 
     const resultados = document.createElement('section')
     resultados.className = 'resultados'
@@ -54,12 +54,12 @@ async function logarUsuario() {
     const data = await getListarContatos(numero)
     console.log('Dados da API:', data)
 
-    if (!data || !Array.isArray(data.dados_contato)) {
+    if (!data || !Array.isArray(data.data.conversas)) {
         alert('Usuário não encontrado ou sem contatos.')
         return
     }
 
-    mostrarContatos(data.dados_contato)
+    mostrarContatos(data.data.conversas)
 }
 
 /***********EVENTO DE ENTER***********/
