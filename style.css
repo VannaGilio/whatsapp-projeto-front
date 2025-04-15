@@ -1,39 +1,132 @@
-*{
-    padding: 0;
-    margin: 0;
-}
-
-body{
+body {
+    font-family: Arial, sans-serif;
     background-image: url(./img/fundo.png);
     background-repeat: no-repeat;
     background-size: cover;
+    margin: 0;
+    padding: 0;
 }
-main{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.container{
-    width: 85%;
-    height: 95vh;
-    background-color: rgba(0, 0, 0, 0.942);
+
+header {
+    height: 80px;
+    background-color: #000000;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.entrar{
-    width: 80%;
-    height: 80%;
-    background-color: rgb(255, 255, 255);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
+h1{
+    color: #ffffff;
+    margin: 0;
 }
-.entrando{
-    width: 20%;
-    height: 5%;
-    background-color: rgba(255, 255, 255, 0.889);
+
+.login-container {
+    padding: 20px;
+    text-align: center;
+    background-color: #fff;
+}
+
+.entrando {
+    padding: 12px 16px;
+    font-size: 16px;
+    border: 1px solid #ccc;
     border-radius: 20px;
-    padding: 5px;
-    border: solid black;
+    width: 280px;
+    max-width: 90%;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.entrando:focus {
+    border-color: #000000;
+}
+
+
+main {
+    max-width: 600px;
+    margin: 20px auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.resultados {
+    padding: 16px;
+    width: 25%;
+    height: 100vh;
+    background-color: #f5f5f5;
+}
+
+.resultados h2 {
+    margin-bottom: 20px;
+    color: #000000;
+    text-align: center;
+}
+
+.contato {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    border-bottom: 1px solid #000000d8;
+    transition: background-color 0.2s;
+    cursor: pointer;
+    gap: 0.5rem;
+}
+
+.contato:hover {
+    background-color: #dfdedee9;
+}
+
+.contato img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 16px;
+    object-fit: cover;
+    border: 2px solid #25d366;
+}
+
+.contato h3 {
+    margin: 0;
+    font-size: 16px;
+    color: #333;
+}
+
+.contato p {
+    margin: 4px 0 0;
+    font-size: 14px;
+    color: #666;
+}
+
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    .contato {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .contato img {
+        width: 45px;
+        height: 45px;
+        margin-right: 12px;
+    }
+
+    .contato h3 {
+        font-size: 0.95rem;
+    }
+
+    .contato p {
+        font-size: 0.85rem;
+    }
+
+    .resultados h2 {
+        font-size: 1.2rem;
+    }
+
+    .entrando {
+        font-size: 0.95rem;
+    }
 }
