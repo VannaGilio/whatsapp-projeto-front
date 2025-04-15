@@ -15,6 +15,44 @@ const getListarContatos = async (numero) => {
     }
 }
 
+const mostrarMensagens = (conversas, name) => {
+
+    let section = document.querySelector('.mensagens')
+
+    if (!section) {
+        section = document.createElement('section')
+        section.className = 'mensagens'
+        document.body.appendChild(section)
+    }
+
+    section.replaceChildren()
+
+    const header = document.createElement('header')
+    header.className = 'nomeContato'
+
+    const contatoNome = document.createElement('h2')
+    contatoNome.textContent = `${name}`
+
+    header.appendChild(contatoNome)
+    section.appendChild(header)
+
+    conversas.forEach(mensagem => {
+        const linha = document.createElement('div')
+        linha.className = mensagem.sender === 'me' ? 'mensagem-eu' : 'mensagem-ele'  //Mudando a class
+
+        const texto = document.createElement('p')
+        texto.textContent = mensagem.content
+
+        const hora = document.createElement('span')
+        hora.className = 'hora'
+        hora.textContent = mensagem.time
+
+        linha.appendChild(texto)
+        linha.appendChild(hora)
+        section.appendChild(linha)
+    })
+}
+
 /***********EXIBIR CONTATOS***********/
 const mostrarContatos = (contatos) => {
     const main = document.querySelector('body')
@@ -39,6 +77,11 @@ const mostrarContatos = (contatos) => {
 
         container.appendChild(nome)
         container.appendChild(descricao)
+
+        container.addEventListener('click', () => {
+            mostrarMensagens(contato.conversas, contato.name)
+        })
+
         resultados.appendChild(container)
     })
 
@@ -54,12 +97,12 @@ async function logarUsuario() {
     const data = await getListarContatos(numero)
     console.log('Dados da API:', data)
 
-    if (!data || !Array.isArray(data.data.conversas)) {
+    if (!data || !Array.isArray(data.conversas)) {
         alert('Usuário não encontrado ou sem contatos.')
         return
     }
 
-    mostrarContatos(data.data.conversas)
+    mostrarContatos(data.conversas)
 }
 
 /***********EVENTO DE ENTER***********/
